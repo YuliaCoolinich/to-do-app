@@ -15,12 +15,13 @@
         "react"
     ],
     "rules": {
+       // "quote-props": ["error", "consistent-as-needed", { "keywords": false }],
         "unicorn/filename-case": [
             "error",
             {
                 "case": "kebabCase",
                 "ignore": [
-                    "src/**/*.js$/"
+                    "src/*.js$/"
                 ]
             }
          ]
