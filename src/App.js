@@ -12,6 +12,7 @@ function App() {
       <main>
         <TodoContainer />
       </main>
+      <footer></footer>
     </div>
   )
 }
