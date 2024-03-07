@@ -15,7 +15,10 @@
         "react"
     ],
     "rules": {
-       // "quote-props": ["error", "consistent-as-needed", { "keywords": false }],
+       "no-alert": "off",
+       "multiline-ternary": [
+        "warn", "always"
+       ],
         "unicorn/filename-case": [
             "error",
             {
