@@ -2,14 +2,27 @@ import { Box, Stack, Chip } from '@mui/material'
 // import { Chip } from '@mui/material-next'
 import Typography from '../base-components/Typography'
 import { deepPurple } from '@mui/material/colors'
+import { ALL, CURRENT, COMPLETED } from '../../constants/taskStatuses'
 
-const SortingPanel = () => {
+const SortingPanel = ({ filter, changeFilter, metaText }) => {
+  const Chips = [{
+    'name': ALL,
+    'onClick': () => changeFilter(ALL),
+  }, {
+    'name': CURRENT,
+    'onClick': () => changeFilter(CURRENT),
+  }, {
+    'name': COMPLETED,
+    'onClick': () => changeFilter(COMPLETED),
+  },
+  ]
   return (
     <Box margin={3}>
         <Typography
           textAlign='center'
-          color={deepPurple[100]}>
-            You have N task
+          key={'task-list-meta-data'}
+          color={deepPurple[200]}>
+            {metaText}
         </Typography>
         <Stack
         direction='row'
@@ -17,22 +30,15 @@ const SortingPanel = () => {
         width='auto'
         justifyContent='center'
         >
-            <Chip
-            label='All'
-            onClick={() => console.log('filter all tasks')}
-            variant='filled'
-            color='secondary'
-            />
-            <Chip
-            label='Current'
-            onClick={() => console.log('filter current tasks')}
-            color='default'
-            />
-            <Chip
-            label='Completed'
-            onClick={() => console.log('filter completed tasks')}
-            color='default'
-            />
+          {Chips?.map((chip) => {
+            return (<Chip
+             label={chip.name}
+             key={chip.name}
+             onClick={chip.onClick}
+             variant={chip.name === filter ? 'filled' : 'default' }
+             color={chip.name === filter ? 'secondary' : 'default' }
+            />)
+          })}
         </Stack>
     </Box>
   )
