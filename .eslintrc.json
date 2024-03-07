@@ -15,12 +15,16 @@
         "react"
     ],
     "rules": {
+       "no-alert": "off",
+       "multiline-ternary": [
+        "warn", "always"
+       ],
         "unicorn/filename-case": [
             "error",
             {
                 "case": "kebabCase",
                 "ignore": [
-                    "src/**/*.js$/"
+                    "src/*.js$/"
                 ]
             }
          ]
